@@ -1,7 +1,7 @@
 <?php
 require_once('/app/config.php');
 
-$i = 0;
+$i = 1;
 $update = false;
 
 $do = true;
