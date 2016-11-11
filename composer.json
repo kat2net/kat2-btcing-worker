@@ -1,7 +1,7 @@
 {
     "scripts": {
         "post-install-cmd": [
-            "chmod -R 777 /app/data"
+            "chmod -R 777 data"
         ]
     },
     "require": {
