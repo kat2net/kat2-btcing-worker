@@ -17,7 +17,7 @@ while($do == true){
             file_put_contents('/app/data/saved', $saved);
         }
 
-        if($i == 10){$update = true;}
+        if($i == 5){$update = true;}
 
         if($update){
             $done = file_get_contents('/app/data/done');
