@@ -10,7 +10,8 @@ if(file_exists('/app/data/done')){
         'name' => getenv('name'),
         'list' => array(
             'active' => true,
-            'done' => (int)file_get_contents('/app/data/done')
+            'done' => (int)file_get_contents('/app/data/done'),
+            'saved' => (int)file_get_contents('/app/data/saved')
         )
     );
 }else{
@@ -19,7 +20,8 @@ if(file_exists('/app/data/done')){
         'name' => getenv('name'),
         'list' => array(
             'active' => false,
-            'done' => 0
+            'done' => 0,
+            'saved' => 0
         )
     );
 }
