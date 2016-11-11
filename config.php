@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
-$v = '0.0.0.4';
+$v = '0.0.0.5';
 
 use BitWasp\Bitcoin\Bitcoin;
 use BitWasp\Bitcoin\Address;
@@ -20,7 +20,7 @@ function genAddr(){
     $public_hex = $publicKey->getPubKeyHash()->getHex();
     $public_dec = $publicKey->getAddress()->getAddress();
 
-    $balance = getBal($public_dec);
+    $balance = getBalance($public_dec);
     if($balance['success']){
         $balance = $balance['balance'];
 
