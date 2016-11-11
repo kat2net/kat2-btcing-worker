@@ -10,7 +10,7 @@ if(file_exists('/app/data')){
         'name' => getenv('name'),
         'list' => array(
             'active' => true,
-            'done' => file_get_contents('/app/data')
+            'done' => file_get_contents('/app/data/done')
         )
     );
 }else{
