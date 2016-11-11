@@ -1,7 +1,7 @@
 <?php
 require_once('/app/vendor/autoload.php');
 
-$v = '0.0.1';
+$v = '0.0.2';
 
 use BitWasp\Bitcoin\Bitcoin;
 use BitWasp\Bitcoin\Address;

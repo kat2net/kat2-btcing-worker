@@ -6,5 +6,8 @@ if(file_exists('/app/data/lock')){
     echo 'It\'s Locked.';
 }else{
     file_put_contents('/app/data/lock', time());
+    file_put_contents('/app/data/done', '0');
+    
+    exec('php /app/worker.php > /app/data/output &');
     exec('php /app/worker.php > /app/data/output &');
 }

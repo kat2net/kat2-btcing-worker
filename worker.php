@@ -1,11 +1,13 @@
 <?php
 require_once('/app/config.php');
 
-$i = 0;
 $do = true;
 while($do == true){
     genAddress();
-    $i++;
 
-    file_put_contents('/app/data/done', $i);
+    $done = file_get_contents('/app/data/done');
+    $done = (int)$done;
+    $done++;
+
+    file_put_contents('/app/data/done', $done);
 }
