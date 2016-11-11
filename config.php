@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
-$v = '0.0.0.3';
+$v = '0.0.0.4';
 
 use BitWasp\Bitcoin\Bitcoin;
 use BitWasp\Bitcoin\Address;
@@ -25,6 +25,7 @@ function genAddr(){
         $balance = $balance['balance'];
 
         $re = array(
+            'success' => true,
             'compressed' => $privateKey->isCompressed(),
             'private' => array(
                 'wif' => $private_wif,
@@ -40,7 +41,9 @@ function genAddr(){
             'balance' => $balance
         );
     }else{
-        return false;
+        $re = array(
+            'success' => false
+        );
     }
 
     return $re;
