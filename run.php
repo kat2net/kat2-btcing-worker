@@ -10,6 +10,4 @@ if(file_exists('/app/data/lock')){
     file_put_contents('/app/data/saved', '0');
     
     exec('php /app/worker.php > /app/data/output &');
-    sleep(1);
-    exec('php /app/worker.php > /app/data/output &');
 }
