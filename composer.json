@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "post-install-cmd": [
+            "chmod -R 777 app/data"
+        ]
+    },
+    "require": {
+        "bitwasp/bitcoin": "v0.0.30.3"
+    }
+}
