@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/config.php');
 header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');
 
-if(file_exists('/app/data')){
+if(file_exists('/app/data/done')){
     $info = array(
         'v' => $v,
         'name' => getenv('name'),
