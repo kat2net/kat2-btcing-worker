@@ -13,7 +13,7 @@ while($do == true){
         if($addr['saved']){
             $saved = file_get_contents('/app/data/saved');
             $saved = (int)$saved;
-            $saved = $saved + $i;
+            $saved = $saved + 1;
             file_put_contents('/app/data/saved', $saved);
         }
 
