@@ -6,21 +6,29 @@ $update = false;
 
 $do = true;
 while($do == true){
-    genAddress();
+    $addr = genAddress();
 
-    if($i == 10){
-        $update = true;
+    if($addr['success']){
+
+        if($addr['saved']){
+            $saved = file_get_contents('/app/data/saved');
+            $saved = (int)$saved;
+            $saved = $saved + $i;
+            file_put_contents('/app/data/saved', $saved);
+        }
+
+        if($i == 10){$update = true;}
+
+        if($update){
+            $done = file_get_contents('/app/data/done');
+            $done = (int)$done;
+            $done = $done + $i;
+            file_put_contents('/app/data/done', $done);
+
+            $i = 0;
+            $update = false;
+        }
+
+        $i++;
     }
-
-    if($update){
-        $done = file_get_contents('/app/data/done');
-        $done = (int)$done;
-        $done = $done + $i;
-        file_put_contents('/app/data/done', $done);
-
-        $i = 0;
-        $update = false;
-    }
-
-    $i++;
 }

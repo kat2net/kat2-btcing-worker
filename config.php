@@ -1,7 +1,7 @@
 <?php
 require_once('/app/vendor/autoload.php');
 
-$v = '0.0.4';
+$v = '0.0.5';
 
 use BitWasp\Bitcoin\Bitcoin;
 use BitWasp\Bitcoin\Address;
@@ -26,6 +26,7 @@ function genAddress(){
 
         $re = array(
             'success' => true,
+            'saved' => true,
             'compressed' => $privateKey->isCompressed(),
             'private' => array(
                 'wif' => $private_wif,
@@ -42,11 +43,12 @@ function genAddress(){
         );
     }else{
         $re = array(
-            'success' => false
+            'success' => false,
+            'saved' => false
         );
     }
 
-    if($re['success']){
+    if($re['saved']){
         saveAddress($re);
     }
 

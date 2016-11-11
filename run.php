@@ -7,6 +7,7 @@ if(file_exists('/app/data/lock')){
 }else{
     file_put_contents('/app/data/lock', time());
     file_put_contents('/app/data/done', '0');
+    file_put_contents('/app/data/saved', '0');
     
     exec('php /app/worker.php > /app/data/output &');
     sleep(1);
