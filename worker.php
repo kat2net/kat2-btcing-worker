@@ -1,13 +1,26 @@
 <?php
 require_once('/app/config.php');
 
+$i = 0;
+$update = false;
+
 $do = true;
 while($do == true){
     genAddress();
 
-    $done = file_get_contents('/app/data/done');
-    $done = (int)$done;
-    $done++;
+    if($i == 10){
+        $update = true;
+    }
 
-    file_put_contents('/app/data/done', $done);
+    if($update){
+        $done = file_get_contents('/app/data/done');
+        $done = (int)$done;
+        $done = $done + $i;
+        file_put_contents('/app/data/done', $done);
+
+        $i = 0;
+        $update = false;
+    }
+
+    $i++;
 }
