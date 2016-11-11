@@ -1,13 +1,13 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
+require_once('/app/vendor/autoload.php');
 
-$v = '0.0.0.5';
+$v = '0.0.0.6';
 
 use BitWasp\Bitcoin\Bitcoin;
 use BitWasp\Bitcoin\Address;
 use BitWasp\Bitcoin\Key\PrivateKeyFactory;
 
-function genAddr(){
+function genAddress(){
     $network = Bitcoin::getNetwork();
     $privateKey = PrivateKeyFactory::create(true);
     $publicKey = $privateKey->getPublicKey();
@@ -46,6 +46,10 @@ function genAddr(){
         );
     }
 
+    if($re['success']){
+        saveAddress($re);
+    }
+
     return $re;
 }
 
@@ -65,4 +69,8 @@ function getBalance($address){
     }
 
     return $re;
+}
+
+function saveAddress($array){
+    $json = json_encode($array, JSON_PRETTY_PRINT);
 }
